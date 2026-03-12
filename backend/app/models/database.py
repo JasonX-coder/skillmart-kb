@@ -73,3 +73,35 @@ class QAHistory(Base):
     
     # 关系
     user = relationship("User", back_populates="qa_history")
+
+
+class Collection(Base):
+    """收藏表 - 用于保存新闻到知识库"""
+    __tablename__ = "collections"
+    
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String(36), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    
+    # 新闻信息
+    news_id = Column(String(100), nullable=False)
+    news_title = Column(Text, nullable=False)
+    news_summary = Column(Text)
+    news_category = Column(String(50))
+    news_source = Column(String(100))
+    news_url = Column(String(500))
+    news_publish_time = Column(String(50))
+    
+    # 知识库分类
+    category_id = Column(String(50))  # 对应分类导航的 id
+    category_name = Column(String(100))
+    
+    # 模板
+    template_id = Column(Integer)
+    template_name = Column(String(100))
+    
+    # 元数据
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    # 关系
+    user = relationship("User")
