@@ -37,6 +37,10 @@ class Settings(BaseSettings):
     # CORS
     CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:5173"]
     
+    # News API (免费新闻数据源)
+    NEWS_API_KEY: str = ""  # newsdata.io API key (可选)
+    NEWS_CACHE_MINUTES: int = 30  # 新闻缓存时间
+    
     class Config:
         env_file = ".env"
         case_sensitive = True

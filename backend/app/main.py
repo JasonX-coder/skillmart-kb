@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.core.config import settings
-from app.api import auth, documents, qa
+from app.api import auth, documents, qa, news
 
 
 @asynccontextmanager
@@ -40,6 +40,7 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/api/auth", tags=["认证"])
 app.include_router(documents.router, prefix="/api/documents", tags=["文档管理"])
 app.include_router(qa.router, prefix="/api/qa", tags=["问答"])
+app.include_router(news.router, prefix="/api/news", tags=["新闻资讯"])
 
 
 @app.get("/")

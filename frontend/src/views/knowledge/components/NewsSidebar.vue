@@ -39,7 +39,7 @@
             <el-tag :type="getTypeColor(item.category)" size="small">
               {{ item.category }}
             </el-tag>
-            <span class="time">{{ formatTime(item.publishTime) }}</span>
+            <span class="time">{{ formatTime(item.publish_time) }}</span>
           </div>
           <h4 class="news-title">{{ item.title }}</h4>
           <p class="news-summary">{{ item.summary }}</p>
@@ -55,13 +55,14 @@
 import { ref, onMounted } from 'vue'
 import { Notification, Refresh } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
+import { getNews } from '@/api/news'
 
 interface NewsItem {
-  id: number
+  id: string
   title: string
   summary: string
   category: string
-  publishTime: string
+  publish_time: string
   source: string
   url?: string
 }
@@ -77,80 +78,31 @@ const categories = ref([
   { id: 'industry', name: '行业' }
 ])
 
-// 模拟新闻数据
-const mockNews: NewsItem[] = [
-  {
-    id: 1,
-    title: 'AI 大模型在各行业加速落地，企业级应用成新蓝海',
-    summary: '随着技术成熟度提升，AI 大模型正在从实验室走向企业实际应用场景...',
-    category: '技术',
-    publishTime: '2026-03-12T15:30:00Z',
-    source: 'TechCrunch'
-  },
-  {
-    id: 2,
-    title: '国家发布新一代人工智能发展规划',
-    summary: '国务院近日印发《新一代人工智能发展规划》，明确未来十年发展目标...',
-    category: '政策',
-    publishTime: '2026-03-12T10:00:00Z',
-    source: '新华社'
-  },
-  {
-    id: 3,
-    title: '2026 年全球云计算市场规模将突破万亿美元',
-    summary: '据 Gartner 最新报告，云计算服务需求持续强劲增长...',
-    category: '行业',
-    publishTime: '2026-03-11T20:00:00Z',
-    source: 'Bloomberg'
-  },
-  {
-    id: 4,
-    title: '企业数字化转型进入深水区，AI Agent 成关键抓手',
-    summary: '数字化转型正在从概念验证进入规模化落地阶段，AI Agent 成为企业新宠...',
-    category: '商业',
-    publishTime: '2026-03-11T14:00:00Z',
-    source: '36Kr'
-  },
-  {
-    id: 5,
-    title: 'TypeScript 5.4 发布，带来多项语法糖与性能优化',
-    summary: 'TypeScript 团队正式发布 5.4 版本，新增多项开发友好特性...',
-    category: '技术',
-    publishTime: '2026-03-10T09:00:00Z',
-    source: 'InfoQ'
-  }
-]
-
 const newsList = ref<NewsItem[]>([])
 
-const fetchNews = async () => {
+const fetchNews = async (forceRefresh = false) => {
   loading.value = true
   try {
-    // TODO: 调用真实 API
-    // const { data } = await axios.get('/api/news', { params: { category: activeCategory.value } })
-    
-    // 模拟
-    await new Promise(resolve => setTimeout(resolve, 500))
-    if (activeCategory.value === 'all') {
-      newsList.value = mockNews
-    } else {
-      const catMap: Record<string, string> = {
-        tech: '技术',
-        business: '商业',
-        policy: '政策',
-        industry: '行业'
-      }
-      newsList.value = mockNews.filter(n => n.category === catMap[activeCategory.value as string])
+    const params: any = {}
+    if (activeCategory.value !== 'all') {
+      params.category = activeCategory.value
     }
+    if (forceRefresh) {
+      params.refresh = true
+    }
+    
+    const data = await getNews(params)
+    newsList.value = data || []
   } catch (error) {
-    ElMessage.error('获取资讯失败')
+    console.error('获取资讯失败:', error)
+    ElMessage.error('获取资讯失败，请稍后重试')
   } finally {
     loading.value = false
   }
 }
 
 const refreshNews = () => {
-  fetchNews()
+  fetchNews(true)
   ElMessage.success('资讯已刷新')
 }
 
