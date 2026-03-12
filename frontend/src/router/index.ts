@@ -31,6 +31,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/knowledge/KnowledgeList.vue')
       },
       {
+        path: '/knowledge/home',
+        name: 'KnowledgeHome',
+        component: () => import('@/views/knowledge/KnowledgeHome.vue')
+      },
+      {
         path: '/knowledge/:id',
         name: 'KnowledgeDetail',
         component: () => import('@/views/knowledge/KnowledgeDetail.vue')
