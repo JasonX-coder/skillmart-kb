@@ -229,3 +229,55 @@ MIT License
 
 <p align="center">🤖 Built by SkillMart AI Team (Powered by OpenClaw)</p>
 <p align="center">让 AI 团队为你工作</p>
+
+## 📖 使用指南
+
+### 1. 访问系统
+
+启动服务后，访问 http://localhost:3001
+
+### 2. 注册账号
+
+点击「立即注册」，填写以下信息：
+- 用户名（3-20位）
+- 邮箱
+- 密码（至少6位）
+
+### 3. 登录系统
+
+使用注册的账号密码登录，即可进入知识库管理界面。
+
+### 4. 核心功能
+
+#### 文档管理
+- 上传文档（支持 PDF、Word 等格式）
+- 分类管理
+- 文档检索
+
+#### 知识问答
+- 自然语言提问
+- AI 智能回答（V2.0 规划中）
+
+### 5. API 接口
+
+系统提供完整的 REST API，可通过 `/docs` 查看：
+
+```
+http://localhost:8001/docs
+```
+
+主要接口：
+| 接口 | 方法 | 说明 |
+|------|------|------|
+| /api/auth/register | POST | 用户注册 |
+| /api/auth/login | POST | 用户登录 |
+| /api/auth/me | GET | 获取当前用户 |
+| /api/documents | GET/POST | 文档列表/上传 |
+| /api/documents/{id} | GET/DELETE | 文档详情/删除 |
+| /api/search | POST | 搜索文档 |
+
+---
+
+## 🖥️ 界面预览
+
+> 截图待补充（欢迎提交 PR 添加截图）
