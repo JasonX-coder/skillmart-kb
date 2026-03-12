@@ -1,0 +1,29 @@
+# FastAPI
+uvicorn[standard]
+python-multipart
+
+# Database
+sqlalchemy
+psycopg2-binary
+alembic
+
+# Auth
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt
+
+# Vector & LLM
+chromadb
+langchain
+langchain-community
+openai
+tiktoken
+
+# Document Processing
+pypdf
+python-docx
+pymupdf
+
+# Utils
+python-dotenv
+pydantic-settings
