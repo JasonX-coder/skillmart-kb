@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Vue3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue3">
   <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
-  <img src="https://img.shields.io/badge-Powered%20by-OpenClaw-7B68EE?style=for-the-badge&logo=robot&logoColor=white" alt="OpenClaw">
+  <img src="https://img.shields.io/badge/OpenClaw-7B68EE?style=for-the-badge&logo=robot&logoColor=white" alt="OpenClaw">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
 </p>
 
