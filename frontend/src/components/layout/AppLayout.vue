@@ -18,6 +18,11 @@
           <template #title>知识列表</template>
         </el-menu-item>
         
+        <el-menu-item index="/knowledge/home">
+          <el-icon><House /></el-icon>
+          <template #title>首页</template>
+        </el-menu-item>
+        
         <el-menu-item index="/profile">
           <el-icon><User /></el-icon>
           <template #title>个人中心</template>
@@ -71,7 +76,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import { Collection, Document, User, Fold, Expand, Plus } from '@element-plus/icons-vue'
+import { Collection, Document, User, Fold, Expand, Plus, House } from '@element-plus/icons-vue'
 import { useAuthStore } from '@/stores/auth'
 import { useUiStore } from '@/stores/ui'
 
