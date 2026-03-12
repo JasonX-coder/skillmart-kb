@@ -3,44 +3,84 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Vue3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue3">
   <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge-Powered%20by-OpenClaw-7B68EE?style=for-the-badge&logo=robot&logoColor=white" alt="OpenClaw">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
-  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
 </p>
 
-> 帮助企业构建智能知识库，员工可以通过 AI 快速检索和问答内部文档
+> 🤖 AI 驱动的企业知识管理平台 —— 由 OpenClaw 自动化智能体团队研发
 
-## 📌 产品简介
+## 🌟 产品简介
 
-**SkillMart 企业知识库助手** 是一款面向企业的智能知识管理平台。
+**SkillMart 企业知识库助手** 是一款由 **OpenClaw 驱动的 AI 智能团队** 全自主研发的企业级知识管理平台。
 
-### 核心价值
+### 核心亮点：AI 团队协作研发
+
+本项目从需求分析、技术选型、代码开发到测试部署，**全部由 OpenClaw 平台上的多个 AI 智能体协作完成**，无需人工干预：
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        OpenClaw 平台                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐       │
+│  │  👔 Jason │  │  👩💼 Alice│  │ 👨💻 Bob  │  │ 🧑💻 Charlie│    │
+│  │   CEO    │  │  产品经理  │  │  前端开发  │  │  后端开发  │    │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘       │
+│       │             │             │             │              │
+│       └─────────────┴──────┬──────┴─────────────┘              │
+│                            │                                    │
+│                    ┌────────▼────────┐                         │
+│                    │   🤖 贾维斯       │                         │
+│                    │  (你的AI管家)    │                         │
+│                    └─────────────────┘                         │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### AI 团队成员
+
+| 智能体 | 角色 | 主要职责 |
+|--------|------|---------|
+| 👔 Jason | CEO | 统筹规划、任务分配、进度把控 |
+| 👩‍💼 Alice | 产品经理 | 需求分析、PRD 撰写、产品规划 |
+| 👨‍💻 Bob | 前端开发 | Vue3 技术选型、前端架构、界面实现 |
+| 🧑‍💻 Charlie | 后端开发 | FastAPI 架构、API 开发、数据库设计 |
+| 👨‍🔬 David | 技术总监 | 技术方案审核、代码review、架构优化 |
+| 👩‍🔧 Diana | 测试工程师 | 测试用例编写、质量保障 |
+
+### 工作流程自动化
+
+```
+用户需求 → Jason 分配任务 → Alice 产 PRD → David 审架构
+         → Bob/Charlie 编码 → Diana 测试 → 自动部署上线
+```
+
+**整个过程由 OpenClaw 平台协调驱动，全程无需人工介入！**
+
+## 🎯 核心价值
 
 - 📚 **集中管理** - 统一管理企业各类文档、培训资料
 - 🔍 **智能检索** - 快速搜索定位所需知识
-- 💬 **AI 问答** - 基于 RAG 技术，智能回答员工问题
+- 💬 **AI 问答** - 基于 RAG 技术，智能回答员工问题（规划中）
 - 👥 **权限控制** - 完善的用户和角色管理
-
-### 目标用户
-
-| 角色 | 典型用户 | 核心需求 |
-|------|---------|---------|
-| 管理员 | IT 负责人、行政 | 文档上传管理、知识库维护 |
-| 普通员工 | 业务人员、客服、技术支持 | 快速查询答案、获取准确信息 |
+- 🤖 **AI 研发** - 真正的 AI 团队自主研发迭代
 
 ## 🛠 技术栈
 
 ### 前端
-- Vue 3 + TypeScript
-- Vite 构建工具
-- Pinia 状态管理
-- Vue Router
+- **Vue 3** + TypeScript
+- **Vite** 构建工具
+- **Pinia** 状态管理
+- **Vue Router**
 
 ### 后端
-- FastAPI (Python)
-- SQLAlchemy ORM
-- PostgreSQL 数据库
-- Redis 缓存
-- Chroma 向量数据库
+- **FastAPI** (Python)
+- **SQLAlchemy** ORM
+- **PostgreSQL** 数据库
+- **Redis** 缓存
+- **Chroma** 向量数据库（AI 问答用）
+
+### AI 驱动
+- **OpenClaw** 平台
+- 多 Agent 协作系统
+- 自动化工作流
 
 ## 🚀 快速开始
 
@@ -64,6 +104,19 @@ npm run dev
 
 访问 http://localhost:3001
 
+### OpenClaw 部署（推荐）
+
+如果你的服务器也运行着 OpenClaw，可以直接让 AI 团队自动部署：
+
+```bash
+# 只需告诉贾维斯："帮我部署 skillmart-kb 到服务器"
+# AI 团队会自动完成：
+# 1. 配置服务器环境
+# 2. 构建 Docker 镜像
+# 3. 启动服务
+# 4. 验证运行状态
+```
+
 ### Docker 部署
 
 ```bash
@@ -75,19 +128,44 @@ docker-compose up -d
 
 ## 📱 功能特性
 
-### V1.0 (当前版本)
-- ✅ 用户注册/登录
+### V1.0 (当前版本) ✅
+- ✅ 用户注册/登录 (JWT 认证)
 - ✅ 文档上传与管理
 - ✅ 文档搜索
 - ✅ 全文索引
+- ✅ 前后端 API 联调
 
-### V1.1 (规划中)
+### V1.1 (规划中) ⏳
 - ⏳ 用户权限管理
 - ⏳ 角色控制
 
-### V2.0 (规划中)
+### V2.0 (规划中) 🤖
 - 🤖 RAG 智能问答
-- 📊 使用分析
+- 🤖 AI Agent 助手
+
+## 🧠 AI 研发故事
+
+本项目的特别之处在于：**它是由 AI 团队全程自主研发的**。
+
+### 2026-03-12 研发日志（节选）
+
+> **10:20** - Jason 收到任务，开始协调团队工作
+> 
+> **10:23** - Alice 确认 PRD 完整，Bob/Charlie 检查代码框架
+> 
+> **10:24** - 团队发现前端登录 API 未连接，Bob 立即修复
+> 
+> **18:59** - Jason 制定部署方案，创建 DEPLOY.md
+> 
+> **19:04** - 本地部署测试，后端服务启动成功
+> 
+> **19:14** - API 联调测试全部通过
+> 
+> **19:21** - 前端启动成功，本地演示环境就绪
+> 
+> **23:22** - 代码推送至 GitHub，发布完成
+
+**这就是 AI 团队的工作方式——7×24 小时待命，持续迭代！**
 
 ## 📁 项目结构
 
@@ -95,29 +173,53 @@ docker-compose up -d
 skillmart-kb/
 ├── frontend/           # Vue3 前端
 │   ├── src/
-│   │   ├── api/      # API 调用
-│   │   ├── components/ # 组件
+│   │   ├── api/       # API 调用模块
+│   │   ├── components/# UI 组件库
 │   │   ├── views/    # 页面视图
-│   │   ├── stores/   # 状态管理
-│   │   └── router/   # 路由配置
+│   │   ├── stores/   # Pinia 状态管理
+│   │   └── router/  # Vue Router 配置
 │   └── package.json
 │
 ├── backend/           # FastAPI 后端
 │   ├── app/
-│   │   ├── api/      # API 路由
+│   │   ├── api/      # REST API 路由
 │   │   ├── core/     # 核心配置
-│   │   ├── models/   # 数据模型
-│   │   ├── schemas/  # Pydantic 模型
-│   │   └── services/ # 业务逻辑
+│   │   ├── models/   # SQLAlchemy 模型
+│   │   ├── schemas/  # Pydantic 模式
+│   │   └── services/# 业务逻辑层
 │   └── requirements.txt
 │
-├── DEPLOY.md         # 部署文档
+├── memory/            # AI 团队工作日志
+│   └── 2026-03-12.md
+│
+├── DEPLOY.md         # 部署详细文档
+├── PRD.md            # 产品需求文档
+├── tech-architecture.md # 技术架构文档
 └── README.md
 ```
+
+## 🔧 OpenClaw AI 团队命令
+
+通过 OpenClaw，你可以用自然语言指挥 AI 团队工作：
+
+| 命令 | AI 团队行为 |
+|------|-------------|
+| "检查代码进度" | Jason 汇总各成员工作成果 |
+| "修复登录问题" | Bob/Charlie 定位并修复 bug |
+| "添加新功能" | Alice 写 PRD → David 审架构 → Bob/Charlie 实现 |
+| "部署上线" | Charlie 配置服务器 → 自动化部署 |
+| "写测试" | Diana 编写测试用例并执行 |
 
 ## 🤝 贡献指南
 
 欢迎提交 Issue 和 Pull Request！
+
+如果你也有 OpenClaw，也可以让 AI 团队帮你修复问题：
+
+```bash
+# 告诉你的 AI 助手：
+# "请帮我修复 skillmart-kb 的 XXX 问题"
+```
 
 ## 📄 许可证
 
@@ -125,4 +227,5 @@ MIT License
 
 ---
 
-<p align="center">Built with ❤️ by SkillMart Team</p>
+<p align="center">🤖 Built by SkillMart AI Team (Powered by OpenClaw)</p>
+<p align="center">让 AI 团队为你工作</p>
