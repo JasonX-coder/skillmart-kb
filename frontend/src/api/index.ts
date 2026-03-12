@@ -28,10 +28,16 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse) => {
-    const { code, message, data } = response.data
+    // 如果返回的是对象且没有 code 字段，直接返回 data
+    const data = response.data
+    if (data && typeof data === 'object' && !('code' in data)) {
+      return data
+    }
+    
+    const { code, message, data: resData } = response.data
     
     if (code === 200 || code === 0) {
-      return data
+      return resData
     }
     
     // token 过期

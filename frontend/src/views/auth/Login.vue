@@ -97,8 +97,9 @@ const handleLogin = async () => {
       authStore.setToken(data.access_token)
       ElMessage.success('登录成功')
       router.push('/layout')
-    } catch (error) {
+    } catch (error: any) {
       console.error(error)
+      ElMessage.error(error?.response?.data?.detail || '登录失败，请检查用户名和密码')
     } finally {
       loading.value = false
     }

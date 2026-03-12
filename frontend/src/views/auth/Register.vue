@@ -137,8 +137,10 @@ const handleRegister = async () => {
       
       ElMessage.success('注册成功，请登录')
       router.push('/login')
-    } catch (error) {
-      console.error(error)
+    } catch (error: any) {
+      console.error('注册错误:', error)
+      const msg = error?.response?.data?.detail || error?.message || '注册失败，请稍后重试'
+      ElMessage.error(Array.isArray(msg) ? msg[0]?.msg || msg[0]?.message : msg)
     } finally {
       loading.value = false
     }
